@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <!-- Tailwind CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/darkmode.css">
+</head>
+  <body class="flex flex-col md:flex-row h-screen">
+    <div class="w-full p-4 flex justify-between items-center fixed top-0 z-50">
+    <div class="container flex justify-between items-center">
+        <a class="text-gray-800 dark:text-white text-2xl font-bold" href="#">DeepCodeDiver</a>
+        <!-- Mobile menu button and dark mode toggle button -->
+        <div class="flex ml-3 md:hidden">
+            <button id="mobile-menu-button" type="button" class="mr-2 text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <button id="theme-toggle-mobile" class="p-2 rounded mr-2"> <i id="theme-icon-mobile" class="fas fa-moon"></i> </button>    
+        </div>
+
+        <!-- Desktop navigation menu -->
+        <div id="menu" class="hidden md:block md:flex md:items-center md:justify-between">
+            <div class="flex items-center justify-end md:flex-1 lg:w-0">
+                
+                    <a class="ml-8 whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900" href="/" >Home</a>
+                
+                    <a class="ml-8 whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900" href="/about.html" class="current">About</a>
+                
+            </div>
+            <!-- Dark mode toggle button for desktop -->
+            <div class="ml-3 p-1 hidden md:block">
+                <button id="theme-toggle" class="p-2 rounded bg-gray-200 hidden md:block"> <i id="theme-icon" class="fas fa-moon"></i> </button>
+            </div>
+        </div>
+
+        <!-- Mobile navigation menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            
+                <a class="block py-2.5 px-4 rounded transition color duration-200 hover:bg-gray-200" href="/" >Home</a>
+            
+                <a class="block py-2.5 px-4 rounded transition color duration-200 hover:bg-gray-200" href="/about.html" class="current">About</a>
+            
+        </div>
+    </div>
+</div>
+    <div id="sidebar", class="w-full md:w-80 bg-white p-4 flex flex-col justify-between pt-20 md:pt-15">
+    <div id="profile", class="mb-4 rounded-md border p-4 flex md:flex-col items-center">
+        <img class="rounded-full w-32 h-32" src="https://source.unsplash.com/random" alt="프로필 이미지">
+        <div class="mt-4 text-center">
+            <h1 class="text-xl font-bold">DeepCodeDiver</h1>
+            <p class="text-gray-600">I'm a best AI/ML Researcher</p>
+        </div>
+      <div class="mb-4 flex-col">
+        <ul class="flex items-center justify-center space-x-4">
+            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="hidden md:block">
+        <p class="text-center text-gray-500">© 2023 이름. All rights reserved.</p>
+    </div>
+</div>
+    <div id="bloglist", class="w-full md:w-3/4 p-4 overflow-auto pt-0 mt-0 md:mt-0 md:pt-20">
+        <h2 id="deepcodediver">&lt;Deep/Code/Diver&gt;</h2>
+<p>Hello, I’m <strong>DeepCodeDiver</strong>, an AI software and algorithm specialist with a keen focus on co-design perspectives of various AI models. I am currently engrossed in the deployment optimization of these models, ensuring seamless integration with hardware. My recent endeavors involve intensive research on the <code class="language-plaintext highlighter-rouge">processing in memory</code> (PIM) of large language models, a fascinating area that has captured my interest. Moreover, I harbor a growing curiosity for Quantum Computing software, a field I believe holds immense potential for the future. Join me as I dive deep into the coding abyss, unraveling the mysteries of AI and quantum computing.</p>
+
+    </div>
+  </body>
+  <script>
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // 토글 버튼 선택
+    const toggleButtonDesktop = document.getElementById('theme-toggle');
+    const toggleButtonMobile = document.getElementById('theme-toggle-mobile');
+
+    // 테마 아이콘 선택
+    const themeIconDesktop = document.getElementById('theme-icon');
+    const themeIconMobile = document.getElementById('theme-icon-mobile');
+
+    // 버튼 클릭 이벤트
+    function toggleTheme() {
+        // body 요소 선택
+        const body = document.body;
+
+        // 현재 테마 확인
+        const currentTheme = body.getAttribute('data-theme');
+
+        // 테마 전환
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'light');
+            themeIconDesktop.className = "fas fa-sun";
+            themeIconMobile.className = "fas fa-sun";
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            themeIconDesktop.className = "fas fa-moon";
+            themeIconMobile.className = "fas fa-moon";
+        }
+    }
+
+    toggleButtonDesktop.addEventListener('click', toggleTheme);
+    toggleButtonMobile.addEventListener('click', toggleTheme);
+    
+    // 프로그레스바
+    let bloglist = document.getElementById("bloglist");
+
+    bloglist.onscroll = function() {
+        let winScroll = bloglist.scrollTop;
+        let height = bloglist.scrollHeight - bloglist.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        document.getElementById("progressbar").style.width = scrolled + "%";
+    }
+    </script>
+</html>

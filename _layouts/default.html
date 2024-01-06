@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  {% include head.html %}
+  <body class="flex flex-col md:flex-row h-screen">
+    {% include navigation.html %}
+    {% include sidebar.html %}
+    <div id="bloglist", class="w-full md:w-3/4 p-4 overflow-auto pt-0 mt-0 md:mt-0 md:pt-20">
+        {{ content }}
+    </div>
+  </body>
+  <script>
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // 토글 버튼 선택
+    const toggleButtonDesktop = document.getElementById('theme-toggle');
+    const toggleButtonMobile = document.getElementById('theme-toggle-mobile');
+
+    // 테마 아이콘 선택
+    const themeIconDesktop = document.getElementById('theme-icon');
+    const themeIconMobile = document.getElementById('theme-icon-mobile');
+
+    // 버튼 클릭 이벤트
+    function toggleTheme() {
+        // body 요소 선택
+        const body = document.body;
+
+        // 현재 테마 확인
+        const currentTheme = body.getAttribute('data-theme');
+
+        // 테마 전환
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'light');
+            themeIconDesktop.className = "fas fa-sun";
+            themeIconMobile.className = "fas fa-sun";
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            themeIconDesktop.className = "fas fa-moon";
+            themeIconMobile.className = "fas fa-moon";
+        }
+    }
+
+    toggleButtonDesktop.addEventListener('click', toggleTheme);
+    toggleButtonMobile.addEventListener('click', toggleTheme);
+    
+    // 프로그레스바
+    let bloglist = document.getElementById("bloglist");
+
+    bloglist.onscroll = function() {
+        let winScroll = bloglist.scrollTop;
+        let height = bloglist.scrollHeight - bloglist.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        document.getElementById("progressbar").style.width = scrolled + "%";
+    }
+    </script>
+</html>

@@ -1,0 +1,23 @@
+<nav id="navbar" class="w-full bg-white p-4 flex justify-between items-center fixed top-0 z-50">
+    <h1 class="text-2xl font-bold">{{site.title}}</h1>
+    <div id="nav-links" class="md:flex items-center">
+        {% for item in site.data.navigation %}
+            <a class="mr-4 hidden md:block" href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a>
+        {% endfor %}
+        <button id="theme-toggle" class="p-2 rounded bg-gray-200 hidden md:block"> <i id="theme-icon" class="fas fa-moon"></i> </button>
+        <div class="md:hidden flex items-center">
+            <button id="theme-toggle-mobile" class="p-2 rounded mr-2"> <i id="theme-icon-mobile" class="fas fa-moon"></i> </button>
+            <button id="nav-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            <div id="dropdown-links" class="absolute top-full right-2 mt-2 w-48 border rounded-md shadow-lg py-1 hidden">
+                {% for item in site.data.navigation %}
+                    <a class="block px-4 py-2" href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div id="progressbar" style="position: absolute; bottom: 0; left: 0; width: 0%; height: 1px;"></div>
+</nav>

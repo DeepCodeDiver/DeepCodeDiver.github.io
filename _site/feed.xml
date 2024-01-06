@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-07T00:04:02+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">DeepCodeDiver</title><subtitle>I&apos;m a best AI/ML Researcher</subtitle><entry><title type="html">Markdown</title><link href="http://localhost:4000/2023/12/25/markdown.html" rel="alternate" type="text/html" title="Markdown" /><published>2023-12-25T00:00:00+09:00</published><updated>2023-12-25T00:00:00+09:00</updated><id>http://localhost:4000/2023/12/25/markdown</id><content type="html" xml:base="http://localhost:4000/2023/12/25/markdown.html"><![CDATA[<p>third post is explain about markdown</p>
+
+<h1 id="h1-test">h1 test</h1>
+<p>this is h1</p>
+
+<h1 id="list">list</h1>
+<ul>
+  <li>this is 1st</li>
+  <li>this is 2nd</li>
+</ul>
+
+<h1 id="code">code</h1>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kn">import</span> <span class="n">torch</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nf">rand</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div></div>]]></content><author><name>deepcodediver</name></author><summary type="html"><![CDATA[third post is explain about markdown]]></summary></entry><entry><title type="html">Ubuntu</title><link href="http://localhost:4000/2023/12/21/ubuntu.html" rel="alternate" type="text/html" title="Ubuntu" /><published>2023-12-21T00:00:00+09:00</published><updated>2023-12-21T00:00:00+09:00</updated><id>http://localhost:4000/2023/12/21/ubuntu</id><content type="html" xml:base="http://localhost:4000/2023/12/21/ubuntu.html"><![CDATA[<p>fisrt post is ubuntu settup</p>]]></content><author><name>deepcodediver</name></author><summary type="html"><![CDATA[fisrt post is ubuntu settup]]></summary></entry><entry><title type="html">Hello</title><link href="http://localhost:4000/2023/12/20/hello.html" rel="alternate" type="text/html" title="Hello" /><published>2023-12-20T00:00:00+09:00</published><updated>2023-12-20T00:00:00+09:00</updated><id>http://localhost:4000/2023/12/20/hello</id><content type="html" xml:base="http://localhost:4000/2023/12/20/hello.html"><![CDATA[<p>Hello world!</p>]]></content><author><name>deepcodediver</name></author><summary type="html"><![CDATA[Hello world!]]></summary></entry></feed>
