@@ -1,6 +1,41 @@
 @charset "UTF-8";
-.current {
-  color: #1B5E20;
+body, #navbar {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body {
+  color: black;
+  background-color: white;
+}
+
+body.dark {
+  color: white;
+  background-color: black;
+}
+
+#navbar {
+  background-color: white;
+  color: black;
+}
+
+body.dark #navbar {
+  background-color: black;
+  color: white;
+}
+
+body.dark #site-title {
+  color: white;
+}
+
+li, hr {
+  border-color: black;
+  background-color: white;
+  transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+body.dark li, body.dark hr {
+  border-color: white;
+  background-color: black;
 }
 
 .prose {

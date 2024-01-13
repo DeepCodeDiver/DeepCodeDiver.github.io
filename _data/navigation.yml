@@ -1,5 +1,6 @@
-- name: Home
+- name: Blog
   link: /
+- name: Publification
+  link: /pub.html
 - name: About
   link: /about.html
-  

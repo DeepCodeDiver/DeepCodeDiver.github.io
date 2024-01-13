@@ -1,21 +1,21 @@
 ---
 layout: default
-title: Home
+title: "Deep Code Diver!"
 ---
 
-<h2 class="text-xl font-bold mb-2">블로그 리스트</h2>
-
+<h2 class="text-3xl m-2 mb-3"> >> Decoding Deep Learning: An Exploaration;</h2>
+<img class="w-full h-32 rounded-lg mx-auto mb-6 object-cover" src="https://picsum.photos/800" alt="Profile picture">
+<hr class="mb-1">
 <ul>
     {% for post in site.posts %}
-        <li class="mb-4 bg-white rounded shadow border p-4">
-        <a href="{{ post.url }}" class="font-bold text-xl">{{ post.title }}</a>
-        <div class="text-sm text-gray-500">
-            <span>{{ post.date | date_to_string }}</span> |
-            <span>카테고리: {% for category in post.categories %}{{ category }}{% if forloop.last == false %}, {% endif %}{% endfor %}</span> |
-            <span>태그: {% for tag in post.tags %}{{ tag }}{% if forloop.last == false %}, {% endif %}{% endfor %}</span> |
-            <span>읽기 예상 시간: {% if post.content.size < 360 %}1{% else %}{{ post.content.size | divided_by:1800 }}{% endif %}분</span>
+        <li class="mb-1 bg-white border-b p-4">
+        <a href="{{ post.url }}" class="text-lg">{{ post.title }}</a>
+        <span class="rounded-lg bg-gray-700 px-2 p-1 text-sm text-white float-right">{% for category in post.categories %}{{ category }}{% if forloop.last == false %}, {% endif %}{% endfor %}</span> 
+        <div class="text-sm text-gray-500 space-x-3">
+            <span><i class="far fa-calendar-alt"></i> {{ post.date | date_to_string }}</span> 
+            <span><i class="far fa-clock"></i> {% if post.content.size < 360 %}1{% else %}{{ post.content.size | divided_by:1800 }}{% endif %} min</span>
         </div>
-        <p class="text-gray-600">{{ post.excerpt }}</p>
+        
         </li>
     {% endfor %}
 </ul>
