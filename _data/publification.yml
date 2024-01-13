@@ -1,6 +1,18 @@
-- name: 1
-  link: tet
-- name: 2
-  link: test
-- name: 3
-  link: test
+- title: Real-time motion classification with efficient event stream data processing
+  author: Jeon, Seokhun and Park, Sihyeong and Kim, Kyungmo and Kim, Byung-Soo and Jang, Youngjong
+  booktitle: 2023 IEEE International Conference on Consumer Electronics-Asia (ICCE-Asia)
+  pages: 1--3
+  name: ICCE-Asia
+  year: 2023
+  link: https://ieeexplore.ieee.org/document/10326424
+  organization: IEEE
+
+- title: A Study on Concentric Feature Embeddings in Variational Multiclass Classification for Small-Scale Quantum Computers
+  author: Jeon, Seokhun and Hong, Yunpyo and Kim, Byung-Soo
+  booktitle: 2023 IEEE International Conference on Quantum Computing and Engineering (QCE)
+  volume: 2
+  pages: 326--327
+  name: QCE
+  year: 2023
+  link: https://ieeexplore.ieee.org/document/10313595
+  organization: IEEE

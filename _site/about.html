@@ -17,26 +17,26 @@
         <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
             <span id="site-title" class="bg-transparent self-center text-2xl font-semibold whitespace-nowrap">DeepCodeDiver</span>
         </a>
-        <button id="hamburger-btn", data-collapse-toggle="navbar-solid-bg" type="button" class="inline-flex items-center p-2 w-8 h-8 justify-center rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-solid-bg" aria-expanded="false">
+        <button id="hamburger-btn", data-collapse-toggle="navbar-solid-bg" type="button" class="inline-flex items-center p-2 w-8 h-8 hover:text-purple-900 justify-center rounded-lg md:hidden" aria-controls="navbar-solid-bg" aria-expanded="false">
             <i id="menu-icon" class="fas fa-bars"></i>
         </button>
         <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
             <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
                 
                     <li>
-                    <a class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:hover:bg-gray-200 dark:hover:text-white md:dark:hover:bg-transparent" href="/" >Blog</a>
+                    <a class="block py-2 px-3 md:p-0 rounded md:border-0 hover:text-purple-900" href="/" >Blog</a>
                     </li>
                 
                     <li>
-                    <a class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:hover:bg-gray-200 dark:hover:text-white md:dark:hover:bg-transparent" href="/pub.html" >Publification</a>
+                    <a class="block py-2 px-3 md:p-0 rounded md:border-0 hover:text-purple-900" href="/pub.html" >Publification</a>
                     </li>
                 
                     <li>
-                    <a class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:hover:bg-gray-200 dark:hover:text-white md:dark:hover:bg-transparent" href="/about.html" class="current">About</a>
+                    <a class="block py-2 px-3 md:p-0 rounded md:border-0 hover:text-purple-900" href="/about.html" class="current">About</a>
                     </li>
                 
                 <li>
-                <span class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-200 dark:hover:text-white md:dark:hover:bg-transparent"> <button id="theme-toggle" class="rounded-lg md:block focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"> <i id="theme-icon" class="fas fa-moon"></i> </button> </span>
+                <span class="block py-2 px-3 md:p-0 rounded hover:text-purple-900 md:border-0 "> <button id="theme-toggle" class="rounded-lg md:block"> <i id="theme-icon" class="fas fa-moon"></i> </button> </span>
                 </li>
                 
             </ul>
@@ -81,12 +81,24 @@
     var themeIcon = document.getElementById('theme-icon');
     var body = document.body;
 
+    // 페이지 로드 시 저장된 테마 모드를 적용
+    var savedThemeMode = localStorage.getItem('themeMode');
+    if (savedThemeMode === 'dark') {
+        body.classList.add('dark');
+        themeIcon.className = 'fas fa-sun';
+    }
+
     themeToggle.addEventListener('click', function() {
+        // 테마 모드 변경
         body.classList.toggle('dark');
         if (body.classList.contains('dark')) {
             themeIcon.className = 'fas fa-sun';
+            // 테마 모드를 localStorage에 저장
+            localStorage.setItem('themeMode', 'dark');
         } else {
             themeIcon.className = 'fas fa-moon';
+            // 테마 모드를 localStorage에 저장
+            localStorage.setItem('themeMode', 'light');
         }
     });
 
@@ -96,8 +108,33 @@
 <img class="w-full h-32 rounded-lg mx-auto mb-6 object-cover" src="https://picsum.photos/800" alt="Profile picture">
 <div class="flex-col">
     
-    <hr>
-    <p class="p-6">
+    <hr class="mb-3">
+
+    <div class="flex flex-col md:flex-row">
+        <img class = "w-32 h-36 mx-auto md:mx-6 mb-3 rounded-xl object-cover" src="/assets/profile.png" alt="Profile Image">
+
+        <div class="mb-6">
+            <h2 class="text-xl px-6 font-semibold mb-1 text-center md:text-left"> Seokhun Jeon </h2>
+            <h2 class="text-sm px-6 text-gray-500 mb-1"> Senior Researcher / KETI (Korea Electronics Technology Institute) / 2017 ~ Present</h2>
+            <h2 class="text-sm px-6 text-gray-500 mb-1"> Senior Engineer / SKDC (Seagate Korea Design Center) / 2013 ~ 2017</h2>
+            <h2 class="text-sm px-6 text-gray-500 mb-1"> M.S Degree in EE / Soongsil University / 2012</h2>
+            <h2 class="text-sm px-6 text-gray-500 mb-1"> B.S Degree / Soongsil University / 2010</h2>
+
+            <div class="flex items-center space-x-2 px-6 mt-3">
+                <i class="text-red-700  far fa-heart"></i> 
+                <span class="rounded-lg p-1 px-2 bg-purple-900 text-white text-xs items-center"> LLM </span>
+                <span class="rounded-lg p-1 px-2 bg-purple-800 text-white text-xs justify-center"> MLOPS </span>
+                <span class="rounded-lg p-1 px-2 bg-purple-700 text-white text-xs justify-center"> quantum computing S/W </span>
+            </div>
+        </div>
+
+        
+
+
+    </div>
+    
+    <h2 class="text-xl px-6 font-semibold mb-3"> Bio </h2>
+    <p class="px-6 mb-3">
     Hello, I'm **DeepCodeDiver**, an AI software and algorithm specialist 
     with a keen focus on co-design perspectives of various AI models. 
     I am currently engrossed in the deployment optimization of these models, 

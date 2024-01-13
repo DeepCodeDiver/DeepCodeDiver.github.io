@@ -2,6 +2,9 @@ body, #navbar {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
+.a, .button {
+  transition: color 1.5s ease;
+}
 body {
   color: black;
   background-color: white;

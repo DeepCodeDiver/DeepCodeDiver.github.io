@@ -17,26 +17,26 @@
         <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
             <span id="site-title" class="bg-transparent self-center text-2xl font-semibold whitespace-nowrap">DeepCodeDiver</span>
         </a>
-        <button id="hamburger-btn", data-collapse-toggle="navbar-solid-bg" type="button" class="inline-flex items-center p-2 w-8 h-8 justify-center rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-solid-bg" aria-expanded="false">
+        <button id="hamburger-btn", data-collapse-toggle="navbar-solid-bg" type="button" class="inline-flex items-center p-2 w-8 h-8 hover:text-purple-900 justify-center rounded-lg md:hidden" aria-controls="navbar-solid-bg" aria-expanded="false">
             <i id="menu-icon" class="fas fa-bars"></i>
         </button>
         <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
             <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
                 
                     <li>
-                    <a class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:hover:bg-gray-200 dark:hover:text-white md:dark:hover:bg-transparent" href="/" class="current">Blog</a>
+                    <a class="block py-2 px-3 md:p-0 rounded md:border-0 hover:text-purple-900" href="/" class="current">Blog</a>
                     </li>
                 
                     <li>
-                    <a class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:hover:bg-gray-200 dark:hover:text-white md:dark:hover:bg-transparent" href="/pub.html" >Publification</a>
+                    <a class="block py-2 px-3 md:p-0 rounded md:border-0 hover:text-purple-900" href="/pub.html" >Publification</a>
                     </li>
                 
                     <li>
-                    <a class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:hover:bg-gray-200 dark:hover:text-white md:dark:hover:bg-transparent" href="/about.html" >About</a>
+                    <a class="block py-2 px-3 md:p-0 rounded md:border-0 hover:text-purple-900" href="/about.html" >About</a>
                     </li>
                 
                 <li>
-                <span class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-200 dark:hover:text-white md:dark:hover:bg-transparent"> <button id="theme-toggle" class="rounded-lg md:block focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"> <i id="theme-icon" class="fas fa-moon"></i> </button> </span>
+                <span class="block py-2 px-3 md:p-0 rounded hover:text-purple-900 md:border-0 "> <button id="theme-toggle" class="rounded-lg md:block"> <i id="theme-icon" class="fas fa-moon"></i> </button> </span>
                 </li>
                 
             </ul>
@@ -81,12 +81,24 @@
     var themeIcon = document.getElementById('theme-icon');
     var body = document.body;
 
+    // 페이지 로드 시 저장된 테마 모드를 적용
+    var savedThemeMode = localStorage.getItem('themeMode');
+    if (savedThemeMode === 'dark') {
+        body.classList.add('dark');
+        themeIcon.className = 'fas fa-sun';
+    }
+
     themeToggle.addEventListener('click', function() {
+        // 테마 모드 변경
         body.classList.toggle('dark');
         if (body.classList.contains('dark')) {
             themeIcon.className = 'fas fa-sun';
+            // 테마 모드를 localStorage에 저장
+            localStorage.setItem('themeMode', 'dark');
         } else {
             themeIcon.className = 'fas fa-moon';
+            // 테마 모드를 localStorage에 저장
+            localStorage.setItem('themeMode', 'light');
         }
     });
 
@@ -99,8 +111,8 @@
     
         <li class="mb-1 bg-white border-b p-4">
         <a href="/test/2024/01/02/test-1.html" class="text-lg">MarkDown Test</a>
-        <span class="rounded-lg bg-gray-700 px-2 p-1 text-sm text-white float-right">test</span> 
-        <div class="text-sm text-gray-500 space-x-3">
+        <span class="rounded-lg bg-purple-900 px-2 p-1 text-sm text-white float-right">test</span> 
+        <div class="text-sm text-gray-500 mt-2 space-x-3">
             <span><i class="far fa-calendar-alt"></i> 02 Jan 2024</span> 
             <span><i class="far fa-clock"></i> 0 min</span>
         </div>
@@ -109,8 +121,8 @@
     
         <li class="mb-1 bg-white border-b p-4">
         <a href="/greeting/2024/01/01/hello.html" class="text-lg">Hello</a>
-        <span class="rounded-lg bg-gray-700 px-2 p-1 text-sm text-white float-right">greeting</span> 
-        <div class="text-sm text-gray-500 space-x-3">
+        <span class="rounded-lg bg-purple-900 px-2 p-1 text-sm text-white float-right">greeting</span> 
+        <div class="text-sm text-gray-500 mt-2 space-x-3">
             <span><i class="far fa-calendar-alt"></i> 01 Jan 2024</span> 
             <span><i class="far fa-clock"></i> 1 min</span>
         </div>

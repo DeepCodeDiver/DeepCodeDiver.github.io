@@ -10,8 +10,8 @@ title: "Deep Code Diver!"
     {% for post in site.posts %}
         <li class="mb-1 bg-white border-b p-4">
         <a href="{{ post.url }}" class="text-lg">{{ post.title }}</a>
-        <span class="rounded-lg bg-gray-700 px-2 p-1 text-sm text-white float-right">{% for category in post.categories %}{{ category }}{% if forloop.last == false %}, {% endif %}{% endfor %}</span> 
-        <div class="text-sm text-gray-500 space-x-3">
+        <span class="rounded-lg bg-purple-900 px-2 p-1 text-sm text-white float-right">{% for category in post.categories %}{{ category }}{% if forloop.last == false %}, {% endif %}{% endfor %}</span> 
+        <div class="text-sm text-gray-500 mt-2 space-x-3">
             <span><i class="far fa-calendar-alt"></i> {{ post.date | date_to_string }}</span> 
             <span><i class="far fa-clock"></i> {% if post.content.size < 360 %}1{% else %}{{ post.content.size | divided_by:1800 }}{% endif %} min</span>
         </div>

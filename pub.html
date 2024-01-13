@@ -5,14 +5,25 @@ title: "Publifications"
 
 <h2 class="text-3xl m-2 mb-3"> >> Publifications;</h2>
 <img class="w-full h-32 rounded-lg mx-auto mb-6 object-cover" src="https://picsum.photos/800" alt="Profile picture">
-<hr class="mb-1">
+<hr>
 
-<div class="flex">
-    <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
-        {% for item in site.data.publification %}
-            <li>
-            <a class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:hover:bg-gray-200 dark:hover:text-white md:dark:hover:bg-transparent" href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a>
+<div>
+    <ul>
+        {% for paper in site.data.publification %}
+            <li class="p-3 ">
+                <span class="p-1 px-2 rounded-lg text-xs text-white bg-purple-900 mb-6"> {{paper.name}}</span>
+                <span class="ml-2 text-center">{{paper.title}}</span>
+                <a href={{ paper.link }} class="text-sm"><i class="far fa-link"></i></a>
+                <div class="flex flex-col mt-3">
+                    <span class="px-1 text-xs text-gray-500">{{paper.author}}</span>
+                    <span class="px-1 text-xs text-gray-500">{{paper.booktitle}}</span>
+                </div>
+                
             </li>
+            <hr class="w-full mb-1">
+            <!-- <li>
+            <a class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:hover:bg-gray-200 dark:hover:text-white md:dark:hover:bg-transparent" href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a>
+            </li> -->
         {% endfor %}
     </ul>
 </div>
