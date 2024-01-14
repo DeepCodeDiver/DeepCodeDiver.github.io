@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Install CUDA/cudnn on Ubuntu23.10 - DeepCodeDiver</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Tailwind CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  </head>
+  <body>
+    <nav id="navbar" class="bg-white fixed w-full z-20 top-0 start-0">
+    <div class="container mx-auto px-6 py-3 flex flex-wrap items-center justify-between">
+        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <span id="site-title" class="bg-transparent self-center text-2xl font-semibold whitespace-nowrap">DeepCodeDiver</span>
+        </a>
+        <button id="hamburger-btn", data-collapse-toggle="navbar-solid-bg" type="button" class="inline-flex items-center p-2 w-8 h-8 hover:text-purple-900 justify-center rounded-lg md:hidden" aria-controls="navbar-solid-bg" aria-expanded="false">
+            <i id="menu-icon" class="fas fa-bars"></i>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
+            <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+                
+                    <li>
+                    <a class="block py-2 px-3 md:p-0 rounded md:border-0 hover:text-purple-900" href="/" >Blog</a>
+                    </li>
+                
+                    <li>
+                    <a class="block py-2 px-3 md:p-0 rounded md:border-0 hover:text-purple-900" href="/pub.html" >Publification</a>
+                    </li>
+                
+                    <li>
+                    <a class="block py-2 px-3 md:p-0 rounded md:border-0 hover:text-purple-900" href="/about.html" >About</a>
+                    </li>
+                
+                <li>
+                <span class="block py-2 px-3 md:p-0 rounded hover:text-purple-900 md:border-0 "> <button id="theme-toggle" class="rounded-lg md:block"> <i id="theme-icon" class="fas fa-moon"></i> </button> </span>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var navItems = document.querySelectorAll('#navbar-solid-bg ul li a');
+        var currentPage = window.location.pathname;
+
+        navItems.forEach(function(item) {
+            if (item.getAttribute('href') === currentPage) {
+                item.classList.add('current');
+            }
+        });
+
+        var hamburgerButton = document.getElementById('hamburger-btn');
+        var navMenu = document.getElementById('navbar-solid-bg');
+
+        hamburgerButton.addEventListener('click', function() {
+            navMenu.classList.toggle('hidden');
+        });
+    });
+
+    var hamburgerButton = document.getElementById('hamburger-btn');
+    var navMenu = document.getElementById('navbar-solid-bg');
+    var menuIcon = document.getElementById('menu-icon');
+
+    hamburgerButton.addEventListener('click', function() {
+        navMenu.classList.toggle('block');
+        if (navMenu.classList.contains('block')) {
+            menuIcon.className ='fas fa-times';
+        } else {
+            menuIcon.className ='fas fa-bars';
+        }
+    });
+
+    var themeToggle = document.getElementById('theme-toggle');
+    var themeIcon = document.getElementById('theme-icon');
+    var body = document.body;
+
+    // 페이지 로드 시 저장된 테마 모드를 적용
+    var savedThemeMode = localStorage.getItem('themeMode');
+    if (savedThemeMode === 'dark') {
+        body.classList.add('dark');
+        themeIcon.className = 'fas fa-sun';
+    }
+
+    themeToggle.addEventListener('click', function() {
+        // 테마 모드 변경
+        body.classList.toggle('dark');
+        if (body.classList.contains('dark')) {
+            themeIcon.className = 'fas fa-sun';
+            // 테마 모드를 localStorage에 저장
+            localStorage.setItem('themeMode', 'dark');
+        } else {
+            themeIcon.className = 'fas fa-moon';
+            // 테마 모드를 localStorage에 저장
+            localStorage.setItem('themeMode', 'light');
+        }
+    });
+
+</script>
+    <main class="container mx-auto min-h-screen items-center px-5 px-0 mt-20 flex-grow">
+      <div class="relative">
+    <img class="w-full h-24 rounded-lg mx-auto mb-3 object-cover" src="https://picsum.photos/800" alt="Profile picture">
+    <div class="absolute inset-0 rounded-lg bg-white opacity-70">
+        <div class="flex justify-between items-center">
+            <h2 class="text-3xl font-bold px-3 m-3 text-gray-900">Install CUDA/cudnn on Ubuntu23.10</h2>
+            <div class="flex items-center space-x-2 px-3">
+                <i class="fas fa-layer-group text-purple-900 items-left"></i>
+                <span class="rounded-lg bg-purple-900 p-1 px-2 mr-6 text-sm text-white">  setup</span> 
+            </div>
+            
+        </div>
+        <div class="flex items-center px-3 mb-3 ml-3">
+            <div class="flex items-center space-x-2">
+                <svg class="w-6 h-6 p-1 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                    <path d="M15.045.007 9.31 0a1.965 1.965 0 0 0-1.4.585L.58 7.979a2 2 0 0 0 0 2.805l6.573 6.631a1.956 1.956 0 0 0 1.4.585 1.965 1.965 0 0 0 1.4-.585l7.409-7.477A2 2 0 0 0 18 8.479v-5.5A2.972 2.972 0 0 0 15.045.007Zm-2.452 6.438a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+                </svg>
+                
+                    <a class="text-sm text-gray-900 bg-gray-300 p-1 rounded hover:bg-gray-200" href="#">
+                        ubuntu23.10
+                    </a>
+                
+                    <a class="text-sm text-gray-900 bg-gray-300 p-1 rounded hover:bg-gray-200" href="#">
+                        cuda
+                    </a>
+                
+                    <a class="text-sm text-gray-900 bg-gray-300 p-1 rounded hover:bg-gray-200" href="#">
+                        cudnn
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <hr>
+    <div class="text-sm text-gray-500 space-x-3 p-2">
+        <span><i class="far fa-calendar-alt"></i> 05 Jan 2024</span> 
+        <span><i class="far fa-clock"></i> 3 min</span>
+    </div>
+    <hr>
+</div>
+
+<article class="prose overflow-auto whitespace-normal break-words">
+    <h1 id="1-check-driver">1. Check Driver</h1>
+
+<p>command line 에서 아래 명령어를 입력하여 현재 설치된 그래픽 드라이버를 확인한다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ubuntu-drivers devices
+</code></pre></div></div>
+
+<p><img src="/assets/images/post0105/Untitled.png" alt="terminal output for driver devices" /></p>
+
+<p>소프트웨어 및 업데이트를 실행한 뒤 설정에서 추가 드라이버 탭을 눌러 현재 세팅된 드라이버를 확인한다.</p>
+
+<p><img src="/assets/images/post0105/Untitled 1.png" alt="Untitled" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">nvidia-driver-535</code>로 setting 된 것이 확인된다.</p>
+
+<h1 id="2-cuda-toolkit-설치">2. CUDA Toolkit 설치</h1>
+
+<p>Select the cuda toolkit version refer to the nvidia driver version. Download CUDA Toolkit 12.2. select target platform as below image</p>
+
+<p><a href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA Toolkit Archive</a></p>
+
+<p><img src="/assets/images/post0105/Untitled 2.png" alt="Untitled" /></p>
+
+<p>enter the instruction in the terminal (shortcut → ctr+alt+T).</p>
+
+<p>만약 진행 중 에러 발생 시 아래 링크 참조</p>
+
+<p><a href="#troubleshooting">cuda 설치 시 libtinfo5 에러 발생</a></p>
+
+<h1 id="3-cudnn-설치">3. Cudnn 설치</h1>
+
+<p>아래 링크에서 Cudnn tar 파일을 다운로드 받는다.</p>
+
+<p><a href="https://developer.nvidia.com/rdp/cudnn-download">CUDNN Download Link</a></p>
+
+<p><img src="/assets/images/post0105/Untitled 3.png" alt="Untitled" /></p>
+
+<p>터미널로 이동하여 아래 지침을 실행한다.</p>
+
+<ol>
+  <li>Extract cudnn file
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">tar</span> <span class="nt">-xvf</span> cudnn-linux-x86_64-8.9.7.29_cuda12-archive.tar.xz
+</code></pre></div>    </div>
+  </li>
+  <li>Copy bin files into cuda directory
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">cd </span>cudnn-linux-x86_64-8.9.2.26_cuda12-archive
+ <span class="nb">sudo cp </span>include/cudnn<span class="k">*</span> /usr/local/cuda/include
+ <span class="nb">sudo cp </span>lib/libcudnn<span class="k">*</span> /usr/local/cuda/lib64
+ <span class="nb">sudo chmod </span>a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn<span class="k">*</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Link files
+    <aside>
+ 💡 경로 및 파일 이름은 cuda 및 cudnn 버전에 따라 변경될 수 있음.
+ </aside>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo ln</span> <span class="nt">-sf</span> /usr/local/cuda-12.2/targets/x86_64-linux/lib/libcudnn_adv_train.so.8.9.7 /usr/local/cuda-12.2/targets/x86_64-linux/lib/libcudnn_adv_train.so.8
+ <span class="nb">sudo ln</span> <span class="nt">-sf</span> /usr/local/cuda-12.2/targets/x86_64-linux/lib/libcudnn_ops_infer.so.8.9.7  /usr/local/cuda-12.2/targets/x86_64-linux/lib/libcudnn_ops_infer.so.8
+ <span class="nb">sudo ln</span> <span class="nt">-sf</span> /usr/local/cuda-12.2/targets/x86_64-linux/lib/libcudnn_cnn_train.so.8.9.7  /usr/local/cuda-12.2/targets/x86_64-linux/lib/libcudnn_cnn_train.so.8
+ <span class="nb">sudo ln</span> <span class="nt">-sf</span> /usr/local/cuda-12.2/targets/x86_64-linux/lib/libcudnn_adv_infer.so.8.9.7  /usr/local/cuda-12.2/targets/x86_64-linux/lib/libcudnn_adv_infer.so.8
+ <span class="nb">sudo ln</span> <span class="nt">-sf</span> /usr/local/cuda-12.2/targets/x86_64-linux/lib/libcudnn_ops_train.so.8.9.7  /usr/local/cuda-12.2/targets/x86_64-linux/lib/libcudnn_ops_train.so.8
+ <span class="nb">sudo ln</span> <span class="nt">-sf</span> /usr/local/cuda-12.2/targets/x86_64-linux/lib/libcudnn_cnn_infer.so.8.9.7 /usr/local/cuda-12.2/targets/x86_64-linux/lib/libcudnn_cnn_infer.so.8
+ <span class="nb">sudo ln</span> <span class="nt">-sf</span> /usr/local/cuda-12.2/targets/x86_64-linux/lib/libcudnn.so.8.9.7 /usr/local/cuda-12.2/targets/x86_64-linux/lib/libcudnn.so.8
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h1 id="troubleshooting">Troubleshooting</h1>
+<h2 id="cuda-설치-시-libtinfo5-에러-발생">cuda 설치 시 libtinfo5 에러 발생</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">libtinfo5</code> package isn’t available in Ubuntu 23.10’s default repositories yet. We can install it by adding the <code class="language-plaintext highlighter-rouge">universe</code> repo for Ubuntu 23.04 (Lunar Lobster).</p>
+
+<p><img src="/assets/images/post0105/Untitled 4.png" alt="Untitled" /></p>
+
+<ol>
+  <li>Open a terminal window and run:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>nano /etc/apt/sources.list
+</code></pre></div>    </div>
+  </li>
+  <li>Add this line (adds the Ubuntu 23.04 aka “Lunar Lobster” universe repository to <code class="language-plaintext highlighter-rouge">apt</code>):
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> deb http://archive.ubuntu.com/ubuntu/ lunar universe
+</code></pre></div>    </div>
+  </li>
+  <li>Save and exit, then run:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>apt update
+</code></pre></div>    </div>
+  </li>
+  <li>Re-install
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>apt-get <span class="nt">-y</span> <span class="nb">install </span>cuda
+</code></pre></div>    </div>
+  </li>
+  <li>Install Sucess and check nvidia-smi
+ <img src="/assets/images/post0105/Untitled 5.png" alt="Untitled" /></li>
+</ol>
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+  <li><a href="https://hjh1023.tistory.com/58">https://hjh1023.tistory.com/58</a></li>
+  <li><a href="https://hjh1023.tistory.com/59">https://hjh1023.tistory.com/59</a></li>
+  <li><a href="https://gist.github.com/eliazonta/e98a470c09655d7f276da258984e3e5a">https://gist.github.com/eliazonta/e98a470c09655d7f276da258984e3e5a</a></li>
+  <li><a href="https://askubuntu.com/questions/1491254/installing-cuda-on-ubuntu-23-10-libt5info-not-installable">https://askubuntu.com/questions/1491254/installing-cuda-on-ubuntu-23-10-libt5info-not-installable</a></li>
+</ul>
+
+
+</article>
+    </main>
+    <footer class="w-full mb-3 mt-10">
+    <div class="flex items-center">
+        <hr class="flex-grow border-t-2">
+        <span class="px-2 text-xs">meobeo</span>
+        <hr class="flex-grow border-t-2">
+      </div>
+    <div class="container mx-auto px-4 py-2">
+        
+        <div class="flex justify-between items-center">
+        <div>
+            <h3 class="text-lg font-bold">DeepCodeDiver</h3>
+            <p class="mt-2 text-sm text-gray-500">&copy;2024 DeepCodeDiver. All rights reserved.</p>
+        </div>
+        <div>
+            <ul class="flex items-center space-x-4">
+                <li>
+                    <a href="mailto:seokhun.jeon@keti.re.kr" class="text-gray-500"><i class="far fa-envelope"></i> Contact</a>
+                </li>
+                <li>
+                    <a href="https://github.com/DeepCodeDiver" class="text-gray-500"><i class="fab fa-github"></i> Github</a>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>
