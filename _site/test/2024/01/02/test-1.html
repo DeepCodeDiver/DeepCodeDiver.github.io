@@ -45,7 +45,7 @@
     </div>
 </nav>
 
-  <script>
+<script>
     document.addEventListener('DOMContentLoaded', function() {
         var navItems = document.querySelectorAll('#navbar-solid-bg ul li a');
         var currentPage = window.location.pathname;
@@ -117,7 +117,9 @@
         </div>
         <div class="flex items-center px-3 mb-3 ml-3">
             <div class="flex items-center space-x-2">
-                <i class="far fa-tags text-gray-500"></i> 
+                <svg class="w-6 h-6 p-1 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                    <path d="M15.045.007 9.31 0a1.965 1.965 0 0 0-1.4.585L.58 7.979a2 2 0 0 0 0 2.805l6.573 6.631a1.956 1.956 0 0 0 1.4.585 1.965 1.965 0 0 0 1.4-.585l7.409-7.477A2 2 0 0 0 18 8.479v-5.5A2.972 2.972 0 0 0 15.045.007Zm-2.452 6.438a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+                </svg>
                 
                     <a class="text-sm text-gray-900 bg-gray-300 p-1 rounded hover:bg-gray-200" href="#">
                         meo
@@ -141,7 +143,7 @@
     <hr>
 </div>
 
-<div class="prose p-6 mb-4">
+<article class="prose overflow-auto whitespace-normal break-words">
     <p>third post is explain about markdown</p>
 
 <h1 id="typography-test">Typography test</h1>
@@ -150,7 +152,7 @@
 <h4 id="this-is-h4">this is h4</h4>
 <h5 id="this-is-h5">this is h5</h5>
 
-<h2>========</h2>
+<hr />
 
 <h1 id="list-items">List items</h1>
 <p>list test.</p>
@@ -161,8 +163,9 @@
 
 <h1 id="code-block">Code block</h1>
 <p>code block test.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kn">import</span> <span class="n">torch</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nf">rand</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">torch</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nf">rand</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="n">_</span>
 </code></pre></div></div>
 
 <h1 id="bolditalichighlights">Bold/Italic/Highlights</h1>
@@ -172,7 +175,35 @@
   <li><code class="language-plaintext highlighter-rouge">hightlights</code> word!</li>
 </ol>
 
-</div>
+<h1 id="table">Table</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>제목 1</th>
+      <th>제목 2</th>
+      <th>제목 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>내용 1</td>
+      <td>내용 2</td>
+      <td>내용 3</td>
+    </tr>
+    <tr>
+      <td>내용 4</td>
+      <td>내용 5</td>
+      <td>내용 6</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="long-text">Long Text</h1>
+
+<p>abcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefg</p>
+
+</article>
     </main>
     <footer class="w-full mb-3 mt-10">
     <div class="flex items-center">

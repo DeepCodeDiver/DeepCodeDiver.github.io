@@ -44,7 +44,7 @@ body.dark li, body.dark hr {
 
 .prose {
   color: #374151;
-  max-width: 65ch;
+  padding: 7px;
 }
 
 .prose [class~=lead] {
@@ -194,7 +194,7 @@ body.dark li, body.dark hr {
 
 .prose pre {
   background-color: #1f2937;
-  border-radius: 0.375rem;
+  border-radius: 0.375rem !important;
   color: #e5e7eb;
   font-size: 0.875em;
   line-height: 1.7142857;
@@ -206,7 +206,6 @@ body.dark li, body.dark hr {
 
 .prose pre code {
   background-color: transparent;
-  border-radius: 0;
   border-width: 0;
   color: inherit;
   font-family: inherit;
@@ -348,6 +347,394 @@ body.dark li, body.dark hr {
 
 .prose > :last-child {
   margin-bottom: 0;
+}
+
+body.dark .prose {
+  color: #f3f3f3;
+}
+
+body.dark .prose [class~=lead] {
+  color: #f3f3f3;
+}
+
+body.dark .prose a {
+  color: #f3f3f3;
+}
+
+body.dark .prose strong {
+  color: #efe1e3;
+}
+
+body.dark .prose ol > li:before {
+  color: #f3f3f3;
+}
+
+body.dark .prose ul > li:before {
+  background-color: #d1d5db;
+}
+
+body.dark .prose hr {
+  border-color: #e5e7eb;
+}
+
+body.dark .prose blockquote {
+  border-left-color: #553e3e;
+  color: #f3f3f3;
+}
+
+body.dark .prose h1 {
+  color: #f3f3f3;
+}
+
+body.dark .prose h2 {
+  color: #f3f3f3;
+}
+
+body.dark .prose h3 {
+  color: #f3f3f3;
+}
+
+body.dark .prose h4 {
+  color: #f3f3f3;
+}
+
+body.dark .prose figure figcaption {
+  color: #f3f3f3;
+}
+
+body.dark .prose code {
+  color: #121212;
+}
+
+body.dark .prose a code {
+  color: #121212;
+}
+
+body.dark .prose pre {
+  background-color: #555555;
+  color: #121212;
+}
+
+body.dark .prose thead {
+  border-bottom-color: #d1d5db;
+  color: #f3f3f3;
+}
+
+.prose tbody tr {
+  border-bottom-color: #e5e7eb;
+  border-bottom-width: 1px;
+}
+
+.prose tbody tr:last-child {
+  border-bottom-width: 0;
+}
+
+.prose tbody td {
+  padding: 0.5714286em;
+  vertical-align: top;
+}
+
+.prose {
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.prose p {
+  margin-bottom: 1.25em;
+  margin-top: 1.25em;
+}
+
+.prose figure, .prose img, .prose video {
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
+
+.prose figure > * {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.highlight table td {
+  padding: 5px;
+}
+
+.highlight table pre {
+  margin: 0;
+}
+
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+  font-style: italic;
+}
+
+.highlight .cm {
+  color: #75715e;
+  font-style: italic;
+}
+
+.highlight .c1 {
+  color: #75715e;
+  font-style: italic;
+}
+
+.highlight .cp {
+  color: #75715e;
+  font-weight: bold;
+}
+
+.highlight .cs {
+  color: #75715e;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.highlight .err {
+  color: #960050;
+  background-color: #1e0010;
+}
+
+.highlight .gi {
+  color: #ffffff;
+  background-color: #324932;
+}
+
+.highlight .gd {
+  color: #ffffff;
+  background-color: #493131;
+}
+
+.highlight .ge {
+  color: #000000;
+  font-style: italic;
+}
+
+.highlight .gr {
+  color: #aa0000;
+}
+
+.highlight .gt {
+  color: #aa0000;
+}
+
+.highlight .gh {
+  color: #999999;
+}
+
+.highlight .go {
+  color: #888888;
+}
+
+.highlight .gp {
+  color: #555555;
+}
+
+.highlight .gs {
+  font-weight: bold;
+}
+
+.highlight .gu {
+  color: #aaaaaa;
+}
+
+.highlight .k, .highlight .kv {
+  color: #66d9ef;
+  font-weight: bold;
+}
+
+.highlight .kc {
+  color: #66d9ef;
+  font-weight: bold;
+}
+
+.highlight .kd {
+  color: #66d9ef;
+  font-weight: bold;
+}
+
+.highlight .kp {
+  color: #66d9ef;
+  font-weight: bold;
+}
+
+.highlight .kr {
+  color: #66d9ef;
+  font-weight: bold;
+}
+
+.highlight .kt {
+  color: #66d9ef;
+  font-weight: bold;
+}
+
+.highlight .kn {
+  color: #f92672;
+  font-weight: bold;
+}
+
+.highlight .ow {
+  color: #f92672;
+  font-weight: bold;
+}
+
+.highlight .o {
+  color: #f92672;
+  font-weight: bold;
+}
+
+.highlight .mf {
+  color: #ae81ff;
+}
+
+.highlight .mh {
+  color: #ae81ff;
+}
+
+.highlight .il {
+  color: #ae81ff;
+}
+
+.highlight .mi {
+  color: #ae81ff;
+}
+
+.highlight .mo {
+  color: #ae81ff;
+}
+
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+
+.highlight .se {
+  color: #ae81ff;
+}
+
+.highlight .sa {
+  color: #66d9ef;
+  font-weight: bold;
+}
+
+.highlight .sb {
+  color: #e6db74;
+}
+
+.highlight .sc {
+  color: #e6db74;
+}
+
+.highlight .sd {
+  color: #e6db74;
+}
+
+.highlight .s2 {
+  color: #e6db74;
+}
+
+.highlight .sh {
+  color: #e6db74;
+}
+
+.highlight .si {
+  color: #e6db74;
+}
+
+.highlight .sx {
+  color: #e6db74;
+}
+
+.highlight .sr {
+  color: #e6db74;
+}
+
+.highlight .s1 {
+  color: #e6db74;
+}
+
+.highlight .ss {
+  color: #e6db74;
+}
+
+.highlight .s, .highlight .dl {
+  color: #e6db74;
+}
+
+.highlight .na {
+  color: #a6e22e;
+}
+
+.highlight .nc {
+  color: #a6e22e;
+  font-weight: bold;
+}
+
+.highlight .nd {
+  color: #a6e22e;
+  font-weight: bold;
+}
+
+.highlight .ne {
+  color: #a6e22e;
+  font-weight: bold;
+}
+
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+  font-weight: bold;
+}
+
+.highlight .no {
+  color: #66d9ef;
+}
+
+.highlight .bp {
+  color: #f8f8f2;
+}
+
+.highlight .nb {
+  color: #f8f8f2;
+}
+
+.highlight .ni {
+  color: #f8f8f2;
+}
+
+.highlight .nn {
+  color: #f8f8f2;
+}
+
+.highlight .vc {
+  color: #f8f8f2;
+}
+
+.highlight .vg {
+  color: #f8f8f2;
+}
+
+.highlight .vi {
+  color: #f8f8f2;
+}
+
+.highlight .nv, .highlight .vm {
+  color: #f8f8f2;
+}
+
+.highlight .w {
+  color: #f8f8f2;
+}
+
+.highlight .nl {
+  color: #f8f8f2;
+  font-weight: bold;
+}
+
+.highlight .nt {
+  color: #f92672;
+}
+
+.highlight {
+  color: #f8f8f2;
+  background-color: #49483e;
+  border-radius: 1em;
 }
 
 /*# sourceMappingURL=main.css.map */

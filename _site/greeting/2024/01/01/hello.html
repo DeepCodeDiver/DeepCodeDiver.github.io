@@ -45,7 +45,7 @@
     </div>
 </nav>
 
-  <script>
+<script>
     document.addEventListener('DOMContentLoaded', function() {
         var navItems = document.querySelectorAll('#navbar-solid-bg ul li a');
         var currentPage = window.location.pathname;
@@ -117,7 +117,9 @@
         </div>
         <div class="flex items-center px-3 mb-3 ml-3">
             <div class="flex items-center space-x-2">
-                <i class="far fa-tags text-gray-500"></i> 
+                <svg class="w-6 h-6 p-1 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                    <path d="M15.045.007 9.31 0a1.965 1.965 0 0 0-1.4.585L.58 7.979a2 2 0 0 0 0 2.805l6.573 6.631a1.956 1.956 0 0 0 1.4.585 1.965 1.965 0 0 0 1.4-.585l7.409-7.477A2 2 0 0 0 18 8.479v-5.5A2.972 2.972 0 0 0 15.045.007Zm-2.452 6.438a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+                </svg>
                 
                     <a class="text-sm text-gray-900 bg-gray-300 p-1 rounded hover:bg-gray-200" href="#">
                         meo
@@ -141,13 +143,13 @@
     <hr>
 </div>
 
-<div class="prose p-6 mb-4">
+<article class="prose overflow-auto whitespace-normal break-words">
     <h1 id="greetings">Greetings!</h1>
 <h2 id="hello-world">Hello World!</h2>
 <p>This is my first post in this blog!!</p>
 
 
-</div>
+</article>
     </main>
     <footer class="w-full mb-3 mt-10">
     <div class="flex items-center">
