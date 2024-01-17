@@ -1,6 +1,17 @@
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://deepcodediver.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
 title: "DeepCodeDiver" # the name of your site, e.g. ACME Corp.
+
+# 사이트맵 설정
+sitemap:
+  # 사이트맵 파일명
+  filename: "sitemap.xml"
+
+# 사이트맵을 생성할 페이지 설정 (선택 사항)
+collections:
+  posts:
+    output: true
+    permalink: "/posts/:title/"
 
 markdown: kramdown
 kramdown:
