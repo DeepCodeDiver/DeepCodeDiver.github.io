@@ -44,7 +44,7 @@ layout: default
 
 {% assign related_posts = site.posts | where_exp: "post", "post.categories contains page.categories.first" | limit: 3 %}
 {% if related_posts.size > 0 %}
-    <div>
+    <div class = "mb-6">
         {% if related_posts.size > 1 %}
             <hr class="mb-3">
             <h3 class="text-3xl px-1 font-bold mb-2">Related Posts</h3>
@@ -54,9 +54,14 @@ layout: default
             {% for related_post in related_posts %}
             {% assign related_url = related_post.url %}
             {% unless related_url == current_url %}
-                <li>
-                    <a href="{{ related_post.url }}" class="text-blue-500 hover:underline">{{ related_post.title }}</a>
-            
+                <li class="mb-1 flex justify-between bg-gray-300 rounded-lg p-2">
+                    <div class="flex items-center">
+                        <a href="{{ related_post.url }}" class="text-blue-500 hover:underline">{{ related_post.title | truncate: 50  }}</a>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-sm mr-2"><i class="far fa-calendar-alt"></i> {{ related_post.date | date_to_string }}</span> 
+                        <span class="text-sm"><i class="far fa-clock"></i> {% if related_post.content.size < 360 %}1{% else %}{{ related_post.content.size | divided_by:1800 }}{% endif %} min</span>
+                    </div>
                 </li>
                 {% endunless %}
             {% endfor %}

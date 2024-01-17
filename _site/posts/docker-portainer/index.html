@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <title>MarkDown Test - DeepCodeDiver</title>
+    <title>Install Docker and Portainer - DeepCodeDiver</title>
     <link rel="stylesheet" href="/assets/css/main.css">
 
     <!-- Tailwind CSS CDN -->
@@ -109,7 +109,7 @@
     <div class="flex justify-between absolute inset-0 rounded-lg bg-white opacity-70">  
         <div class="flex items-center space-x-2 px-3">
             <i class="fas fa-layer-group text-purple-900 items-left"></i>
-            <span class="rounded-lg bg-purple-900 p-1 px-2 mr-6 text-sm text-white">  test</span> 
+            <span class="rounded-lg bg-purple-900 p-1 px-2 mr-6 text-sm text-white">  setup</span> 
         </div>
 
         <div class="flex items-center space-x-2 px-3">
@@ -118,11 +118,15 @@
             </svg>
             
                 <a class="text-sm text-gray-900 bg-gray-300 p-1 rounded hover:bg-gray-200" href="#">
-                    meo
+                    ubuntu23.10
                 </a>
             
                 <a class="text-sm text-gray-900 bg-gray-300 p-1 rounded hover:bg-gray-200" href="#">
-                    beo
+                    docker
+                </a>
+            
+                <a class="text-sm text-gray-900 bg-gray-300 p-1 rounded hover:bg-gray-200" href="#">
+                    portainer
                 </a>
             
         </div>
@@ -131,74 +135,96 @@
 
 
 <div>
-    <h2 class="text-3xl font-bold px-1 mb-3">MarkDown Test</h2>
+    <h2 class="text-3xl font-bold px-1 mb-3">Install Docker and Portainer</h2>
     <hr>
     <div class="text-sm text-gray-500 space-x-3 p-2">
-        <span><i class="far fa-calendar-alt"></i> 02 Jan 2024</span> 
-        <span><i class="far fa-clock"></i> 0 min</span>
+        <span><i class="far fa-calendar-alt"></i> 08 Jan 2024</span> 
+        <span><i class="far fa-clock"></i> 2 min</span>
     </div>
     <hr>
 </div>
 
 <article class="prose mb-3 overflow-auto whitespace-normal break-words">
-    <p>third post is explain about markdown</p>
+    <p>Ubuntu23.10 이 설치된 Dell workstation에서 SSH 원격까지 설치를 완료했습니다. 하지만 보안상의 문제와 개발 환경의 격리를 통해 우리는 좀더 깔끔하게 서버를 사용할 수 있습니다. 본 포스트에서는 이를 위해 OS상의 가상화를 지원하는 Docker 와 이를 쉽게 관리할 수 있는 Portainer 에 관한 설정을 진행해보도록 하겠습니다.</p>
 
-<h1 id="typography-test">Typography test</h1>
-<h2 id="this-is-h2">this is h2</h2>
-<h3 id="this-is-h3">this is h3</h3>
-<h4 id="this-is-h4">this is h4</h4>
-<h5 id="this-is-h5">this is h5</h5>
+<h1 id="1-install-docker">1. Install Docker</h1>
 
-<hr />
+<p>docker는 컨테이너화된 어플리케이션을 만들고 쉽게 관리할 수 있는 오픈소스 플랫폼입니다. 기존의 가상화기술과는 달리 호스트 운영체제와의 직접적인 상호작용을 통해 가볍고 효율적인 환경을 제공합니다.</p>
 
-<h1 id="list-items">List items</h1>
-<p>list test.</p>
-<ul>
-  <li>this is 1st</li>
-  <li>this is 2nd</li>
-</ul>
+<p>docker 의 설치는 아래 두개의 패키지를 설치하면 완료됩니다. 😛</p>
 
-<h1 id="code-block">Code block</h1>
-<p>code block test.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">torch</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nf">rand</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="n">_</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>docker.io docker-compose
 </code></pre></div></div>
 
-<h1 id="bolditalichighlights">Bold/Italic/Highlights</h1>
-<ol>
-  <li><strong>Bold</strong> word!</li>
-  <li><em>Italic</em> word!</li>
-  <li><code class="language-plaintext highlighter-rouge">hightlights</code> word!</li>
-</ol>
+<p>docker 서비스를 시작하여 사용할 수 있도록 준비합니다.</p>
 
-<h1 id="table">Table</h1>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl <span class="nb">enable</span> <span class="nt">--now</span> docker
+<span class="nb">sudo </span>systemctl status docker
+</code></pre></div></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>제목 1</th>
-      <th>제목 2</th>
-      <th>제목 3</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>내용 1</td>
-      <td>내용 2</td>
-      <td>내용 3</td>
-    </tr>
-    <tr>
-      <td>내용 4</td>
-      <td>내용 5</td>
-      <td>내용 6</td>
-    </tr>
-  </tbody>
-</table>
+<p><img src="/assets/images/post0108/Untitled.png" alt="Untitled" /></p>
 
-<h1 id="long-text">Long Text</h1>
+<h1 id="2-verifying-docker-version-and-testing-docker-with-hello-world">2. Verifying Docker version and Testing docker with hello world</h1>
 
-<p>abcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefg</p>
+<p>설치된 docker 가 잘 동작하는지 확인해보도록 하겠습니다. 먼저 버전을 확인해보면 24.0.5가 설치되어있는 것을 확인할 수 있습니다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker <span class="nt">--version</span>
+<span class="o">&gt;</span> Docker version 24.0.5, build 24.0.5-0ubuntu1
+</code></pre></div></div>
+
+<p>간단하게 hello-world 가 동작하는 docker를 실행시켜 봅시다. 터미널 출력에서 Hello from Docker! 가 잘 출력되었네요. 👏</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>docker run hello-world
+</code></pre></div></div>
+
+<p><img src="/assets/images/post0108/Untitled 1.png" alt="Untitled" /></p>
+
+<h1 id="3-download-and-run-portainer">3. Download and Run Portainer</h1>
+
+<p>다음으로 docker를 효율적으로 관리할 수 있는 portainer 라는 웹 서비스가 실행되는 docker 컨테이너를 다운받고 실행시켜보도록 하겠습니다.</p>
+
+<p>아래 명령을 통해 쉽게 다운로드 및 실행이 가능합니다. 자세한 argument 설명은 생략하도록 하겠습니다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>docker run <span class="nt">-d</span> <span class="nt">-p</span> 8000:8000 <span class="nt">-p</span> 9000:9000 <span class="nt">-p</span> 9443:9443 <span class="nt">--name</span><span class="o">=</span>portainer <span class="nt">--restart</span><span class="o">=</span>always <span class="nt">-v</span> /var/run/docker.sock:/var/run/docker.sock <span class="nt">-v</span> portainer_data:/data portainer/portainer-ce:latest
+</code></pre></div></div>
+
+<p><img src="/assets/images/post0108/Untitled 2.png" alt="Untitled" /></p>
+
+<h1 id="4-access-portainer">4. Access Portainer</h1>
+
+<p>Portainer는 앞서 설명한바와 같이 docker를 효율적으로 관리할 수 있는 웹서비스 입니다. 따라서 Web browser에서 아래 주소로 접속을 하면 사용하기 편리한 웹 UI 가 나타나게 됩니다.</p>
+
+<ul>
+  <li>HTTP: http://[WORKSTATION_IP_ADDRESS]:9000</li>
+  <li>HTTPS: https://[WORKSTATION_IP_ADDRESS]:9443</li>
+</ul>
+
+<p>접속을 하게 되면 보안 관련 인증서가 없어서 경고 문구가 뜨지만 무시하고 접속하면 아래와 같은 화면이 나옵니다.</p>
+
+<p>먼저, 초기 관리자의 user name 과 password를 설정해준다.</p>
+
+<p><img src="/assets/images/post0108/Untitled 3.png" alt="Untitled" /></p>
+
+<p>설정을 완료하면 아래와 같은 page 가 나오며 <code class="language-plaintext highlighter-rouge">Get Started</code>를 눌러서 portainer 에 접속한다.</p>
+
+<p><img src="/assets/images/post0108/Untitled 4.png" alt="Untitled" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">local</code>을 클릭하면 현재 docker 의 image와 container volume등의 설정 및 조작이 가능하다.</p>
+
+<p><img src="/assets/images/post0108/Untitled 5.png" alt="Untitled" /></p>
+
+<p><img src="/assets/images/post0108/Untitled 6.png" alt="Untitled" /></p>
+
+<p>다른 docker 이미지가 없다면 아래와 같이 test 에 사용한 hello-world와 portainer container 가 존재하는 것을 볼 수 있고, portainer 가 실행 상태임 확인할 수 있다.</p>
+
+<p><img src="/assets/images/post0108/Untitled 7.png" alt="Untitled" /></p>
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+  <li><a href="https://shape.host/resources/installing-docker-on-ubuntu-23-10-step-by-step-guide">https://shape.host/resources/installing-docker-on-ubuntu-23-10-step-by-step-guide</a></li>
+  <li><a href="https://www.wundertech.net/portainer-on-ubuntu/">https://www.wundertech.net/portainer-on-ubuntu/</a></li>
+</ul>
 
 </article>
 
@@ -210,11 +236,40 @@
 
     <div class = "mb-6">
         
+            <hr class="mb-3">
+            <h3 class="text-3xl px-1 font-bold mb-2">Related Posts</h3>
+        
     
         <ul class="list-disc list-inside">
             
             
             
+            
+            
+            
+                <li class="mb-1 flex justify-between bg-gray-300 rounded-lg p-2">
+                    <div class="flex items-center">
+                        <a href="/posts/ssh/" class="text-blue-500 hover:underline">Install SSH</a>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-sm mr-2"><i class="far fa-calendar-alt"></i> 07 Jan 2024</span> 
+                        <span class="text-sm"><i class="far fa-clock"></i> 1 min</span>
+                    </div>
+                </li>
+                
+            
+            
+            
+                <li class="mb-1 flex justify-between bg-gray-300 rounded-lg p-2">
+                    <div class="flex items-center">
+                        <a href="/posts/Install-CUDA/" class="text-blue-500 hover:underline">Install CUDA/cudnn on Ubuntu23.10</a>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-sm mr-2"><i class="far fa-calendar-alt"></i> 05 Jan 2024</span> 
+                        <span class="text-sm"><i class="far fa-clock"></i> 3 min</span>
+                    </div>
+                </li>
+                
             
 
         </ul>

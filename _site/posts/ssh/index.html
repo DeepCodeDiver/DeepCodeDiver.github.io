@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <title>MarkDown Test - DeepCodeDiver</title>
+    <title>Install SSH - DeepCodeDiver</title>
     <link rel="stylesheet" href="/assets/css/main.css">
 
     <!-- Tailwind CSS CDN -->
@@ -109,7 +109,7 @@
     <div class="flex justify-between absolute inset-0 rounded-lg bg-white opacity-70">  
         <div class="flex items-center space-x-2 px-3">
             <i class="fas fa-layer-group text-purple-900 items-left"></i>
-            <span class="rounded-lg bg-purple-900 p-1 px-2 mr-6 text-sm text-white">  test</span> 
+            <span class="rounded-lg bg-purple-900 p-1 px-2 mr-6 text-sm text-white">  setup</span> 
         </div>
 
         <div class="flex items-center space-x-2 px-3">
@@ -118,11 +118,11 @@
             </svg>
             
                 <a class="text-sm text-gray-900 bg-gray-300 p-1 rounded hover:bg-gray-200" href="#">
-                    meo
+                    ubuntu23.10
                 </a>
             
                 <a class="text-sm text-gray-900 bg-gray-300 p-1 rounded hover:bg-gray-200" href="#">
-                    beo
+                    ssh
                 </a>
             
         </div>
@@ -131,74 +131,81 @@
 
 
 <div>
-    <h2 class="text-3xl font-bold px-1 mb-3">MarkDown Test</h2>
+    <h2 class="text-3xl font-bold px-1 mb-3">Install SSH</h2>
     <hr>
     <div class="text-sm text-gray-500 space-x-3 p-2">
-        <span><i class="far fa-calendar-alt"></i> 02 Jan 2024</span> 
-        <span><i class="far fa-clock"></i> 0 min</span>
+        <span><i class="far fa-calendar-alt"></i> 07 Jan 2024</span> 
+        <span><i class="far fa-clock"></i> 1 min</span>
     </div>
     <hr>
 </div>
 
 <article class="prose mb-3 overflow-auto whitespace-normal break-words">
-    <p>third post is explain about markdown</p>
+    <p>Ubuntu23.10 이 설치된 Dell workstation에서 개발환경을 설정하고 있습니다. 현재는 CUDA와 Cudnn 설치가 완료된 상태입니다. VSCODE 라던지 terminal 접속을 통해 쉽게 개인이 사용하고 있는 PC 에서 개발환경을 꾸미기 위해서는 SSH 의 설치가 필수적입니다. 어떻게 설정하는지 알아보도록 합시다.</p>
 
-<h1 id="typography-test">Typography test</h1>
-<h2 id="this-is-h2">this is h2</h2>
-<h3 id="this-is-h3">this is h3</h3>
-<h4 id="this-is-h4">this is h4</h4>
-<h5 id="this-is-h5">this is h5</h5>
+<h1 id="1-install-ssh-server">1. Install SSH server</h1>
 
-<hr />
+<p>설치는 아래와 같이 openssh-server 패키지를 설치하기만 하면 간단하게 끝납니다.</p>
 
-<h1 id="list-items">List items</h1>
-<p>list test.</p>
-<ul>
-  <li>this is 1st</li>
-  <li>this is 2nd</li>
-</ul>
-
-<h1 id="code-block">Code block</h1>
-<p>code block test.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">torch</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nf">rand</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="n">_</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>openssh-server
 </code></pre></div></div>
 
-<h1 id="bolditalichighlights">Bold/Italic/Highlights</h1>
-<ol>
-  <li><strong>Bold</strong> word!</li>
-  <li><em>Italic</em> word!</li>
-  <li><code class="language-plaintext highlighter-rouge">hightlights</code> word!</li>
-</ol>
+<p>다음으로 ssh 서비스를 시작합니다.</p>
 
-<h1 id="table">Table</h1>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>service ssh start
+</code></pre></div></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>제목 1</th>
-      <th>제목 2</th>
-      <th>제목 3</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>내용 1</td>
-      <td>내용 2</td>
-      <td>내용 3</td>
-    </tr>
-    <tr>
-      <td>내용 4</td>
-      <td>내용 5</td>
-      <td>내용 6</td>
-    </tr>
-  </tbody>
-</table>
+<p>ssh 서비스가 잘 되고 있는지 status를 이용하여 확인 가능합니다.</p>
 
-<h1 id="long-text">Long Text</h1>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>service ssh status
+</code></pre></div></div>
 
-<p>abcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefg</p>
+<p>터미널에서의 결과를 살펴보니 잘 된 것 같습니다!</p>
+
+<p><img src="/assets/images/post0107/Untitled.png" alt="Untitled" /></p>
+
+<h1 id="2-test-shh-connection">2. Test SHH connection</h1>
+
+<p>그렇다면 다른 PC 에서 접속이 잘되는지 확인해보도록 하겠습니다. windows 11이 설치된 PC에서 putty프로그램을 이용하여 접속여부를 확인해보겠습니다.</p>
+
+<p>Putty에서 address + 지정된 port 로 접속을 해보니 아래와 같이 잘 연결이 된 것을 확인할 수 있었습니다.</p>
+
+<p>이제 원격으로 개발할 수 있는 환경이 갖추어졌습니다. 👏</p>
+
+<p><img src="/assets/images/post0107/Untitled 1.png" alt="Untitled" /></p>
+
+<h1 id="appendix">Appendix</h1>
+
+<h2 id="a-allow-ssh-traffic-through-the-firewall-if-ufw-is-installed">A. Allow SSH traffic through the firewall (if ufw is installed)</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>ufw allow ssh
+</code></pre></div></div>
+
+<h2 id="b-change-the-ssh-port">B. Change the SSH port</h2>
+
+<p>Open setting file</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>nano /lib/systemd/system/ssh.socket
+</code></pre></div></div>
+
+<p>Change the following line <code class="language-plaintext highlighter-rouge">ListenStream=22</code></p>
+
+<p><img src="/assets/images/post0107/Untitled 2.png" alt="Untitled" /></p>
+
+<p>Save the file and quit nano editor.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl daemon-reload
+<span class="nb">sudo </span>systemctl restart ssh
+<span class="nb">sudo </span>netstat <span class="nt">-tulpn</span>
+</code></pre></div></div>
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+  <li><a href="https://devtutorial.io/how-to-enable-ssh-on-ubuntu-23-10-p3229.html">https://devtutorial.io/how-to-enable-ssh-on-ubuntu-23-10-p3229.html</a></li>
+  <li><a href="https://askubuntu.com/questions/1439461/ssh-default-port-not-changing-ubuntu-22-10">https://askubuntu.com/questions/1439461/ssh-default-port-not-changing-ubuntu-22-10</a></li>
+</ul>
 
 </article>
 
@@ -210,11 +217,40 @@
 
     <div class = "mb-6">
         
+            <hr class="mb-3">
+            <h3 class="text-3xl px-1 font-bold mb-2">Related Posts</h3>
+        
     
         <ul class="list-disc list-inside">
             
             
             
+                <li class="mb-1 flex justify-between bg-gray-300 rounded-lg p-2">
+                    <div class="flex items-center">
+                        <a href="/posts/docker-portainer/" class="text-blue-500 hover:underline">Install Docker and Portainer</a>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-sm mr-2"><i class="far fa-calendar-alt"></i> 08 Jan 2024</span> 
+                        <span class="text-sm"><i class="far fa-clock"></i> 1 min</span>
+                    </div>
+                </li>
+                
+            
+            
+            
+            
+            
+            
+                <li class="mb-1 flex justify-between bg-gray-300 rounded-lg p-2">
+                    <div class="flex items-center">
+                        <a href="/posts/Install-CUDA/" class="text-blue-500 hover:underline">Install CUDA/cudnn on Ubuntu23.10</a>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-sm mr-2"><i class="far fa-calendar-alt"></i> 05 Jan 2024</span> 
+                        <span class="text-sm"><i class="far fa-clock"></i> 3 min</span>
+                    </div>
+                </li>
+                
             
 
         </ul>
