@@ -3,32 +3,29 @@ layout: default
 ---
 
 <div class="relative">
-    <img class="w-full h-24 rounded-lg mx-auto mb-3 object-cover" src="https://picsum.photos/800" alt="Profile picture">
-    <div class="absolute inset-0 rounded-lg bg-white opacity-70">
-        <div class="flex justify-between items-center">
-            <h2 class="text-3xl font-bold px-3 m-3 text-gray-900">{{ page.title }}</h2>
-            <div class="flex items-center space-x-2 px-3">
-                <i class="fas fa-layer-group text-purple-900 items-left"></i>
-                <span class="rounded-lg bg-purple-900 p-1 px-2 mr-6 text-sm text-white">  {% for category in page.categories %}{{ category }}{% if forloop.last == false %}, {% endif %}{% endfor %}</span> 
-            </div>
-            
+    <img class="w-full h-12 rounded-lg mx-auto mb-3 object-cover" src="https://picsum.photos/800" alt="Profile picture">
+    <div class="flex justify-between absolute inset-0 rounded-lg bg-white opacity-70">  
+        <div class="flex items-center space-x-2 px-3">
+            <i class="fas fa-layer-group text-purple-900 items-left"></i>
+            <span class="rounded-lg bg-purple-900 p-1 px-2 mr-6 text-sm text-white">  {% for category in page.categories %}{{ category }}{% if forloop.last == false %}, {% endif %}{% endfor %}</span> 
         </div>
-        <div class="flex items-center px-3 mb-3 ml-3">
-            <div class="flex items-center space-x-2">
-                <svg class="w-6 h-6 p-1 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                    <path d="M15.045.007 9.31 0a1.965 1.965 0 0 0-1.4.585L.58 7.979a2 2 0 0 0 0 2.805l6.573 6.631a1.956 1.956 0 0 0 1.4.585 1.965 1.965 0 0 0 1.4-.585l7.409-7.477A2 2 0 0 0 18 8.479v-5.5A2.972 2.972 0 0 0 15.045.007Zm-2.452 6.438a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
-                </svg>
-                {% for tag in page.tags %}
-                    <a class="text-sm text-gray-900 bg-gray-300 p-1 rounded hover:bg-gray-200" href="#">
-                        {{ tag }}{% if forloop.last == false %} {% endif %}
-                    </a>
-                {% endfor %}
-            </div>
+
+        <div class="flex items-center space-x-2 px-3">
+            <svg class="w-6 h-6 p-1 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                <path d="M15.045.007 9.31 0a1.965 1.965 0 0 0-1.4.585L.58 7.979a2 2 0 0 0 0 2.805l6.573 6.631a1.956 1.956 0 0 0 1.4.585 1.965 1.965 0 0 0 1.4-.585l7.409-7.477A2 2 0 0 0 18 8.479v-5.5A2.972 2.972 0 0 0 15.045.007Zm-2.452 6.438a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+            </svg>
+            {% for tag in page.tags %}
+                <a class="text-sm text-gray-900 bg-gray-300 p-1 rounded hover:bg-gray-200" href="#">
+                    {{ tag }}{% if forloop.last == false %} {% endif %}
+                </a>
+            {% endfor %}
         </div>
     </div>
 </div>
 
+
 <div>
+    <h2 class="text-3xl font-bold px-1 mb-3">{{ page.title }}</h2>
     <hr>
     <div class="text-sm text-gray-500 space-x-3 p-2">
         <span><i class="far fa-calendar-alt"></i> {{ page.date | date_to_string }}</span> 
@@ -37,6 +34,49 @@ layout: default
     <hr>
 </div>
 
-<article class="prose overflow-auto whitespace-normal break-words">
+<article class="prose mb-3 overflow-auto whitespace-normal break-words">
     {{ content }}
 </article>
+
+
+<!-- 연관 페이지 또는 최신 페이지 리스트 -->
+{% assign current_url = page.url %}
+
+{% assign related_posts = site.posts | where_exp: "post", "post.categories contains page.categories.first" | limit: 3 %}
+{% if related_posts.size > 0 %}
+    <div>
+        {% if related_posts.size > 1 %}
+            <hr class="mb-3">
+            <h3 class="text-3xl px-1 font-bold mb-2">Related Posts</h3>
+        {% endif %}
+    
+        <ul class="list-disc list-inside">
+            {% for related_post in related_posts %}
+            {% assign related_url = related_post.url %}
+            {% unless related_url == current_url %}
+                <li>
+                    <a href="{{ related_post.url }}" class="text-blue-500 hover:underline">{{ related_post.title }}</a>
+            
+                </li>
+                {% endunless %}
+            {% endfor %}
+
+        </ul>
+    </div>
+{% endif %}
+
+<script src="https://giscus.app/client.js"
+        data-repo="DeepCodeDiver/DeepCodeDiver.github.io"
+        data-repo-id="R_kgDOK_I4rQ"
+        data-category="General"
+        data-category-id="DIC_kwDOK_I4rc4CcfB5"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="ko"
+        crossorigin="anonymous"
+        async>
+</script>
