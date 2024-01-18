@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Create Container in Portainer - DeepCodeDiver</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Tailwind CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  </head>
+  <body>
+    <nav id="navbar" class="bg-white fixed w-full z-20 top-0 start-0">
+    <div class="container mx-auto px-6 py-3 flex flex-wrap items-center justify-between">
+        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <span id="site-title" class="bg-transparent self-center text-2xl font-semibold whitespace-nowrap">DeepCodeDiver</span>
+        </a>
+        <button id="hamburger-btn", data-collapse-toggle="navbar-solid-bg" type="button" class="inline-flex items-center p-2 w-8 h-8 hover:text-purple-900 justify-center rounded-lg md:hidden" aria-controls="navbar-solid-bg" aria-expanded="false">
+            <i id="menu-icon" class="fas fa-bars"></i>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
+            <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+                
+                    <li>
+                    <a class="block py-2 px-3 md:p-0 rounded md:border-0 hover:text-purple-900" href="/" >Blog</a>
+                    </li>
+                
+                    <li>
+                    <a class="block py-2 px-3 md:p-0 rounded md:border-0 hover:text-purple-900" href="/pub.html" >Publification</a>
+                    </li>
+                
+                    <li>
+                    <a class="block py-2 px-3 md:p-0 rounded md:border-0 hover:text-purple-900" href="/about.html" >About</a>
+                    </li>
+                
+                <li>
+                <span class="block py-2 px-3 md:p-0 rounded hover:text-purple-900 md:border-0 "> <button id="theme-toggle" class="rounded-lg md:block"> <i id="theme-icon" class="fas fa-moon"></i> </button> </span>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var navItems = document.querySelectorAll('#navbar-solid-bg ul li a');
+        var currentPage = window.location.pathname;
+
+        navItems.forEach(function(item) {
+            if (item.getAttribute('href') === currentPage) {
+                item.classList.add('current');
+            }
+        });
+
+        var hamburgerButton = document.getElementById('hamburger-btn');
+        var navMenu = document.getElementById('navbar-solid-bg');
+
+        hamburgerButton.addEventListener('click', function() {
+            navMenu.classList.toggle('hidden');
+        });
+    });
+
+    var hamburgerButton = document.getElementById('hamburger-btn');
+    var navMenu = document.getElementById('navbar-solid-bg');
+    var menuIcon = document.getElementById('menu-icon');
+
+    hamburgerButton.addEventListener('click', function() {
+        navMenu.classList.toggle('block');
+        if (navMenu.classList.contains('block')) {
+            menuIcon.className ='fas fa-times';
+        } else {
+            menuIcon.className ='fas fa-bars';
+        }
+    });
+
+    var themeToggle = document.getElementById('theme-toggle');
+    var themeIcon = document.getElementById('theme-icon');
+    var body = document.body;
+
+    // 페이지 로드 시 저장된 테마 모드를 적용
+    var savedThemeMode = localStorage.getItem('themeMode');
+    if (savedThemeMode === 'dark') {
+        body.classList.add('dark');
+        themeIcon.className = 'fas fa-sun';
+    }
+
+    themeToggle.addEventListener('click', function() {
+        // 테마 모드 변경
+        body.classList.toggle('dark');
+        if (body.classList.contains('dark')) {
+            themeIcon.className = 'fas fa-sun';
+            // 테마 모드를 localStorage에 저장
+            localStorage.setItem('themeMode', 'dark');
+        } else {
+            themeIcon.className = 'fas fa-moon';
+            // 테마 모드를 localStorage에 저장
+            localStorage.setItem('themeMode', 'light');
+        }
+    });
+
+</script>
+    <main class="container mx-auto min-h-screen items-center px-5 px-0 mt-20 flex-grow">
+      <div class="relative">
+    <img class="w-full h-12 rounded-lg mx-auto mb-3 object-cover" src="https://picsum.photos/800" alt="Profile picture">
+    <div class="flex justify-between absolute inset-0 rounded-lg bg-white opacity-70">  
+        <div class="flex items-center space-x-2 px-3">
+            <i class="fas fa-layer-group text-purple-900 items-left"></i>
+            <span class="rounded-lg bg-purple-900 p-1 px-2 mr-6 text-sm text-white">  setup</span> 
+        </div>
+
+        <div class="flex items-center space-x-2 px-3">
+            <svg class="w-6 h-6 p-1 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                <path d="M15.045.007 9.31 0a1.965 1.965 0 0 0-1.4.585L.58 7.979a2 2 0 0 0 0 2.805l6.573 6.631a1.956 1.956 0 0 0 1.4.585 1.965 1.965 0 0 0 1.4-.585l7.409-7.477A2 2 0 0 0 18 8.479v-5.5A2.972 2.972 0 0 0 15.045.007Zm-2.452 6.438a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+            </svg>
+            
+                <a class="text-sm text-gray-900 bg-gray-300 p-1 rounded hover:bg-gray-200" href="#">
+                    ubuntu23.10
+                </a>
+            
+                <a class="text-sm text-gray-900 bg-gray-300 p-1 rounded hover:bg-gray-200" href="#">
+                    container
+                </a>
+            
+                <a class="text-sm text-gray-900 bg-gray-300 p-1 rounded hover:bg-gray-200" href="#">
+                    portainer
+                </a>
+            
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <h2 class="text-3xl font-bold px-1 mb-3">Create Container in Portainer</h2>
+    <hr>
+    <div class="text-sm text-gray-500 space-x-3 p-2">
+        <span><i class="far fa-calendar-alt"></i> 10 Jan 2024</span> 
+        <span><i class="far fa-clock"></i> 4 min</span>
+    </div>
+    <hr>
+</div>
+
+<article class="prose mb-3 overflow-auto whitespace-normal break-words">
+    <p>Docker 와 Portainer 가 설치된 환경에서 원하는 개발 환경을 구축하기 위해서는 새로운 container 를 먼저 생성해야 한다. 보통은 CLI에서 docker 명령어를 사용하여 container 를 만들지만 많은 argument를 넣어야 하고 설정해주어야 할것도 많기 때문에 쉽지 않다. 이걸 쉽게 하기 위해서 portainer 를 설치했으니 본 포스트에서는 쉽게 docker 컨테이너를 생성하는 방법에 대해 알아보자.</p>
+
+<h1 id="1-image-download">1. Image Download</h1>
+
+<p>AI/ML 개발에서 가장 많이 사용되는 프레임워크 중 하나인 pytorch 개발환경을 구축해보자.  먼저 pytorch 공식 이미지를 pull 하여 새로운 image 를 다운 받는다. 아래 local의 dashboard에서 images 를 클릭하거나 사이드바에서 images를 클릭하여 Image list가 표시된 페이지에서 pytorch 공식 최신 이미지를 받기 위해 <code class="language-plaintext highlighter-rouge">pytorch/pytorch:latest</code> 를 입력한다.</p>
+
+<p>그 다음 pull image 버튼을 클릭하면 다운로드가 아래와 같이 진행된다. 용량이 꽤 크기 때문에 (약 7.2GB) 시간이 좀 오래 소요될 수 있다.</p>
+
+<p><img src="/assets/images/post0110/Untitled.png" alt="Untitled" /></p>
+
+<p>다운로드가 완료 되면 새로운 이미지가 아래와 같이 생긴다!</p>
+
+<p><img src="/assets/images/post0110/Untitled 1.png" alt="Untitled" /></p>
+
+<h1 id="2-create-volume">2. Create Volume</h1>
+
+<p>다음으로 pytorch에서 사용할 볼륨을 생성해보자. 컨테이너를 실수로 삭제하거나 장애로 유실된 경우에 데이터를 보존할 수 있으며 bind를 사용하면 공통적으로 사용하는 데이터의 공유가 가능하다.</p>
+
+<ol>
+  <li>
+    <p>volumes로 이동하여 add volume을 클릭</p>
+
+    <p><img src="/assets/images/post0110/Untitled 2.png" alt="Untitled" /></p>
+  </li>
+  <li>
+    <p>Name에는 volume이름을 입력 하고 (LLM 프로파일러 데이터를 저장할 예정이므로 llmprofiler_data로 설정하였음.)  나머지는 그대로 두고 create the volume을 클릭</p>
+
+    <p><img src="/assets/images/post0110/Untitled 3.png" alt="Untitled" /></p>
+  </li>
+  <li>
+    <p>아래와 같이 새 볼륨이 생성된 것을 확인할 수 있다.</p>
+
+    <p><img src="/assets/images/post0110/Untitled 4.png" alt="Untitled" /></p>
+  </li>
+</ol>
+
+<h1 id="3-create-container">3. Create Container</h1>
+
+<p>대시보드 좌측에서 local에 container 버튼을 클릭한다. 현재 local에 존재하는 container 리스트가 나오고 실행 중인지 exited 인지 상태를 알 수 있다.</p>
+
+<ol>
+  <li>
+    <p>우측 상단의 Add container 버튼을 클릭하여  새로운 container 를 생성할 수 있다.</p>
+
+    <p><img src="/assets/images/post0110/Untitled 5.png" alt="Untitled" /></p>
+  </li>
+  <li>기본 세팅값 설정
+    <ol>
+      <li>컨테이너의 이름을 입력</li>
+      <li>image*에는 아까 다운로드 받은  pytorch/pytorch:latest 입력</li>
+      <li>port mapping을 위해 Manual network port publishing에서 +publish a new network port 를 클릭하여 포트 설정
+        <ul>
+          <li>외부 서비스를 위해 ssh와 http 서비스가 가능한 22번 포트와 80/443 포트를 매핑</li>
+        </ul>
+
+        <p><img src="/assets/images/post0110/Untitled 6.png" alt="Untitled" /></p>
+      </li>
+    </ol>
+  </li>
+  <li>Advanced container setting에서는 볼륨과 네트워크 그래픽 가속 장치 등의 설정 수행이 가능하다.
+    <ol>
+      <li>
+        <p>command&amp;logging에서는 docker 컨테이너 접속시 bash 터미널을 띄워줄 수 있게 해주기 위해 interactive &amp; TTY 를 선택한다. (docker에서 -it 옵션)</p>
+
+        <p><img src="/assets/images/post0110/Untitled 7.png" alt="Untitled" /></p>
+      </li>
+      <li>
+        <p>먼저 앞서 만들어준 볼륨 mapping을 한다. (여기서 Bind를 선택하면 기존 host의 location을 container 의 location에 bind하여 데이터의 공유가 가능하다)</p>
+
+        <p><img src="/assets/images/post0110/Untitled 8.png" alt="Untitled" /></p>
+      </li>
+      <li>
+        <p>재시작 정책 : always (PC의 재시작 등으로 docker가 다시 시작되었을때 컨테이너도 함께 시작됨)</p>
+
+        <p><img src="/assets/images/post0110/Untitled 9.png" alt="Untitled" /></p>
+      </li>
+      <li>
+        <p>Runtime &amp; Resources : GPU를 설정해준다 All GPU를 사용하도록함.</p>
+
+        <p><img src="/assets/images/post0110/Untitled 10.png" alt="Untitled" /></p>
+      </li>
+      <li>
+        <p>마지막으로 deploy the container 버튼을 눌러 컨테이너를 생성하면 최종적으로 사용할 준비가 완료된다 👏</p>
+
+        <p><img src="/assets/images/post0110/Untitled 11.png" alt="Untitled" /></p>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h1 id="troubleshooting">Troubleshooting</h1>
+
+<h2 id="a-gpu-인식-및-추가가-안될-경우">A. GPU 인식 및 추가가 안될 경우</h2>
+
+<p>Container 생성 시 아래와 같이 GPU 버튼이 동작 되지 않는 경우가 있다. Portainer 에서 GPU 디바이스가 보이도록 아래와 같이 설정해준다!</p>
+
+<p><img src="/assets/images/post0110/Untitled 12.png" alt="Untitled" /></p>
+
+<ol>
+  <li>
+    <p>GPU UUID check
+현재 디바이스의 GPU UUID정보를 얻기 위해 아래 명령어로 gpu디바이스가 존재하는 폴더로 이동한다.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">cd</span> /proc/driver/nvidia/gpus/
+ <span class="nb">ls
+ </span>0000:17:00.0  0000:b3:00.0
+    
+ <span class="nb">cd </span>0000<span class="se">\:</span>17<span class="se">\:</span>00.0/
+ <span class="nb">cat </span>information
+    
+ Model:           NVIDIA RTX A6000
+ IRQ:             94
+ GPU UUID:        GPU-f9ccbb10-ef84-d80d-1e85-4aac94cf4fdf
+ Video BIOS:      94.02.5c.00.02
+ Bus Type:        PCIe
+ DMA Size:        47 bits
+ DMA Mask:        0x7fffffffffff
+ Bus Location:    0000:17:00.0
+ Device Minor:    0
+ GPU Excluded:    No
+</code></pre></div>    </div>
+  </li>
+  <li>아래와 같이 Portainer 에서 GPU 정보 설정
+    <ol>
+      <li>Host - Setup 으로 이동하여 Docker Feature Configuration 에서 GPU정보를 입력</li>
+      <li>Show GPU in the UI를 활성화</li>
+      <li>Add GPU버튼을 클릭하여 GPU 이름과 UUID를 기록</li>
+      <li>Save configuration을 클릭하여 업데이트</li>
+    </ol>
+
+    <p><img src="/assets/images/post0110/Untitled 13.png" alt="Untitled" /></p>
+  </li>
+  <li>
+    <p>다시 containers로 이동하여 runtime &amp; Resources를 클릭하여 GPU로 이동하면 enable GPU 버튼이 동작됨을 확인!</p>
+
+    <p><img src="/assets/images/post0110/Untitled 14.png" alt="Untitled" /></p>
+  </li>
+</ol>
+
+<h2 id="b-container-생성-이후-start가-안될-때">B. Container 생성 이후 start가 안될 때</h2>
+
+<p>Container Toolkit이 설치되어야 하는데 Ubuntu23.10에서는 현재 설치가 안됨, 아래 방법으로 설치가 가능하며 docker 에서 실행 가능함을 확인!</p>
+
+<ol>
+  <li>
+    <p>Configure the production repository:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg\&amp;&amp; curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list |\
+     sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' |\
+     sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Optionally, configure the repository to use experimental packages:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo sed</span> <span class="nt">-i</span> <span class="nt">-e</span> <span class="s1">'/experimental/ s/^#//g'</span> /etc/apt/sources.list.d/nvidia-container-toolkit.list
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Update the packages list from the repository:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>apt-get update
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>아래 명령어를 통해 nvidia-container-toolkit을 설치</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> nvidia-docker2
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>정상 설치되었는지 테스트</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>docker run <span class="nt">--rm</span> <span class="nt">--gpus</span> all nvidia/cuda:11.6.2-base-ubuntu20.04 nvidia-smi
+</code></pre></div>    </div>
+
+    <p><img src="/assets/images/post0110/Untitled 15.png" alt="Untitled" /></p>
+  </li>
+</ol>
+
+<h1 id="references">References</h1>
+
+<ul>
+  <li><a href="https://help.iwinv.kr/manual/read.html?idx=548">https://help.iwinv.kr/manual/read.html?idx=548</a></li>
+  <li><a href="https://wandb.ai/wandb_fc/tips/reports/Setting-Up-TensorFlow-And-PyTorch-Using-GPU-On-Docker--VmlldzoxNjU5Mzky">https://wandb.ai/wandb_fc/tips/reports/Setting-Up-TensorFlow-And-PyTorch-Using-GPU-On-Docker–VmlldzoxNjU5Mzky</a></li>
+  <li><a href="https://www.sebae.net/videos/how-to-enable-your-gpu-on-portainer-docker/">https://www.sebae.net/videos/how-to-enable-your-gpu-on-portainer-docker/</a></li>
+  <li><a href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#installing-with-apt">https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#installing-with-apt</a></li>
+  <li><a href="https://ahnbk.dev/?p=125">https://ahnbk.dev/?p=125</a></li>
+</ul>
+
+</article>
+
+
+<!-- 연관 페이지 또는 최신 페이지 리스트 -->
+
+
+
+
+    <div class = "mb-6">
+        
+            <hr class="mb-3">
+            <h3 class="text-3xl px-1 font-bold mb-2">Related Posts</h3>
+        
+    
+        <ul class="list-disc list-inside">
+            
+            
+            
+            
+            
+            
+                <li class="mb-1 flex justify-between bg-gray-300 rounded-lg p-2">
+                    <div class="flex items-center">
+                        <a href="/posts/docker-portainer/" class="text-blue-500 hover:underline">Install Docker and Portainer</a>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-sm mr-2"><i class="far fa-calendar-alt"></i> 08 Jan 2024</span> 
+                        <span class="text-sm"><i class="far fa-clock"></i> 2 min</span>
+                    </div>
+                </li>
+                
+            
+            
+            
+                <li class="mb-1 flex justify-between bg-gray-300 rounded-lg p-2">
+                    <div class="flex items-center">
+                        <a href="/posts/ssh/" class="text-blue-500 hover:underline">Install SSH</a>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-sm mr-2"><i class="far fa-calendar-alt"></i> 07 Jan 2024</span> 
+                        <span class="text-sm"><i class="far fa-clock"></i> 1 min</span>
+                    </div>
+                </li>
+                
+            
+            
+            
+                <li class="mb-1 flex justify-between bg-gray-300 rounded-lg p-2">
+                    <div class="flex items-center">
+                        <a href="/posts/Install-CUDA/" class="text-blue-500 hover:underline">Install CUDA/cudnn on Ubuntu23.10</a>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-sm mr-2"><i class="far fa-calendar-alt"></i> 05 Jan 2024</span> 
+                        <span class="text-sm"><i class="far fa-clock"></i> 3 min</span>
+                    </div>
+                </li>
+                
+            
+
+        </ul>
+    </div>
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="DeepCodeDiver/DeepCodeDiver.github.io"
+        data-repo-id="R_kgDOK_I4rQ"
+        data-category="General"
+        data-category-id="DIC_kwDOK_I4rc4CcfB5"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="ko"
+        crossorigin="anonymous"
+        async>
+</script>
+    </main>
+    <footer class="w-full mb-3 mt-10">
+    <div class="flex items-center">
+        <hr class="flex-grow border-t-2">
+        <span class="px-2 text-xs">meobeo</span>
+        <hr class="flex-grow border-t-2">
+      </div>
+    <div class="container mx-auto px-4 py-2">
+        
+        <div class="flex justify-between items-center">
+        <div>
+            <h3 class="text-lg font-bold">DeepCodeDiver</h3>
+            <p class="mt-2 text-sm text-gray-500">&copy;2024 DeepCodeDiver. All rights reserved.</p>
+        </div>
+        <div>
+            <ul class="flex items-center space-x-4">
+                <li>
+                    <a href="mailto:seokhun.jeon@keti.re.kr" class="text-gray-500"><i class="far fa-envelope"></i> Contact</a>
+                </li>
+                <li>
+                    <a href="https://github.com/DeepCodeDiver" class="text-gray-500"><i class="fab fa-github"></i> Github</a>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>
