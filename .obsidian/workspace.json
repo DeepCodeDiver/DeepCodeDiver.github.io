@@ -1,0 +1,166 @@
+{
+  "main": {
+    "id": "94ecfa074e1dfd1f",
+    "type": "split",
+    "children": [
+      {
+        "id": "3953a29e93dae19b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8ace9e5e93640e23",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_posts/2024-03-29-Obsidian-Github Blog.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3db2a80a25bf2d22",
+    "type": "split",
+    "children": [
+      {
+        "id": "414b563cd645718e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4549d366142c6f9b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "59dc76b850bf62ac",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "5e95d6d680f6bb80",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "6275e1bae7feff83",
+    "type": "split",
+    "children": [
+      {
+        "id": "827db2e822cce315",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d9cf00cfbe0c790e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "_posts/2024-03-29-Obsidian-Github Blog.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "92b1fe0b5138ad57",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "_posts/2024-03-29-Obsidian-Github Blog.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "7469e745b45c8452",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "3621fa6b52bda78a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "_posts/2024-03-29-Obsidian-Github Blog.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:퀵 스위처 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 데일리 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false
+    }
+  },
+  "active": "8ace9e5e93640e23",
+  "lastOpenFiles": [
+    "templates/Post Template.md",
+    "_posts/2024-03-29-Obsidian-Github Blog.md",
+    "_posts/2024-01-10-portainer-container.md",
+    "_posts/2024-03-17-Quantization.md",
+    "_posts/2024-01-02-test#1.md",
+    "무제 폴더",
+    "templates",
+    "_posts/2024-01-01-hello.md",
+    "_site/assets/profile.png",
+    "_posts/2024-01-05-Install-CUDA.md",
+    "무제 파일.canvas",
+    "2024-03-17.md",
+    "_posts/2024-01-08-docker-portainer.md",
+    "_posts/2024-01-07-ssh.md",
+    "assets/profile.png"
+  ]
+}
