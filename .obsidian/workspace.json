@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "3953a29e93dae19b",
+        "id": "4d82dd6bc052e928",
         "type": "tabs",
         "children": [
           {
-            "id": "8ace9e5e93640e23",
+            "id": "efc92e31da0f01e0",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_posts/2024-03-29-Obsidian-Github Blog.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/2024-03-29-Obsidian-Github Blog.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/2024-03-29-Obsidian-Github Blog.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "_posts/2024-03-29-Obsidian-Github Blog.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -145,10 +137,10 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "8ace9e5e93640e23",
+  "active": "efc92e31da0f01e0",
   "lastOpenFiles": [
-    "templates/Post Template.md",
     "_posts/2024-03-29-Obsidian-Github Blog.md",
+    "templates/Post Template.md",
     "_posts/2024-01-10-portainer-container.md",
     "_posts/2024-03-17-Quantization.md",
     "_posts/2024-01-02-test#1.md",
